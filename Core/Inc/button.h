@@ -14,6 +14,6 @@
 #define PRESSED_STATE GPIO_PIN_RESET
 
 void getKeyInput();
-
+void subKeyProcessForButton1();
 
 #endif /* INC_BUTTON_H_ */
