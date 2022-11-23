@@ -37,7 +37,9 @@ void getKeyInputForButton1() {
 		{
 			TimerForButton1--;
 			if(TimerForButton1 == 0) {
-				subKeyProcessForButton1();
+				if(KeyReg1_2 == PRESSED_STATE) {
+					subKeyProcessForButton1();
+				}
 				TimerForButton1 = 200;
 			}
 		}
