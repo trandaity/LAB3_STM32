@@ -97,6 +97,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if(isButton1Pressed() == 1) {
+		  HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -195,9 +198,14 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, RED1_Pin|YLW1_Pin|GRN1_Pin|RED2_Pin
+                          |YLW2_Pin|GRN2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : Button1_Pin Button2_Pin Button3_Pin */
   GPIO_InitStruct.Pin = Button1_Pin|Button2_Pin|Button3_Pin;
@@ -211,6 +219,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_Blinky_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : RED1_Pin YLW1_Pin GRN1_Pin RED2_Pin
+                           YLW2_Pin GRN2_Pin */
+  GPIO_InitStruct.Pin = RED1_Pin|YLW1_Pin|GRN1_Pin|RED2_Pin
+                          |YLW2_Pin|GRN2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 

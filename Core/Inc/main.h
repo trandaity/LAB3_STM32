@@ -66,6 +66,18 @@ void Error_Handler(void);
 #define Button3_GPIO_Port GPIOA
 #define LED_Blinky_Pin GPIO_PIN_5
 #define LED_Blinky_GPIO_Port GPIOA
+#define RED1_Pin GPIO_PIN_10
+#define RED1_GPIO_Port GPIOB
+#define YLW1_Pin GPIO_PIN_11
+#define YLW1_GPIO_Port GPIOB
+#define GRN1_Pin GPIO_PIN_12
+#define GRN1_GPIO_Port GPIOB
+#define RED2_Pin GPIO_PIN_13
+#define RED2_GPIO_Port GPIOB
+#define YLW2_Pin GPIO_PIN_14
+#define YLW2_GPIO_Port GPIOB
+#define GRN2_Pin GPIO_PIN_15
+#define GRN2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -13,9 +13,19 @@ int KeyReg1_2 = NORMAL_STATE;
 int KeyReg1_3 = NORMAL_STATE;
 
 int TimerForButton1 = 200;
+int button1_flag = 0;
+
+int isButton1Pressed() {
+	if(button1_flag == 1) {
+		button1_flag = 0;
+		return 1;
+	}
+
+	return 0;
+}
 
 void subKeyProcessForButton1() {
-	HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
+	button1_flag = 1;
 }
 
 void getKeyInputForButton1() {
@@ -37,10 +47,7 @@ void getKeyInputForButton1() {
 		{
 			TimerForButton1--;
 			if(TimerForButton1 == 0) {
-				if(KeyReg1_2 == PRESSED_STATE) {
-					subKeyProcessForButton1();
-				}
-				TimerForButton1 = 200;
+				KeyReg1_3 = NORMAL_STATE;
 			}
 		}
 	}
