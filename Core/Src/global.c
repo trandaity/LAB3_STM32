@@ -5,4 +5,5 @@
  *      Author: trand
  */
 
-
+int index_led = 0;
+int led_buffer[5] = {};

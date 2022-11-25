@@ -66,6 +66,16 @@ void Error_Handler(void);
 #define Button3_GPIO_Port GPIOA
 #define LED_Blinky_Pin GPIO_PIN_5
 #define LED_Blinky_GPIO_Port GPIOA
+#define EN0_Pin GPIO_PIN_6
+#define EN0_GPIO_Port GPIOA
+#define EN1_Pin GPIO_PIN_7
+#define EN1_GPIO_Port GPIOA
+#define A_Pin GPIO_PIN_0
+#define A_GPIO_Port GPIOB
+#define B_Pin GPIO_PIN_1
+#define B_GPIO_Port GPIOB
+#define C_Pin GPIO_PIN_2
+#define C_GPIO_Port GPIOB
 #define RED1_Pin GPIO_PIN_10
 #define RED1_GPIO_Port GPIOB
 #define YLW1_Pin GPIO_PIN_11
@@ -78,6 +88,20 @@ void Error_Handler(void);
 #define YLW2_GPIO_Port GPIOB
 #define GRN2_Pin GPIO_PIN_15
 #define GRN2_GPIO_Port GPIOB
+#define EN2_Pin GPIO_PIN_8
+#define EN2_GPIO_Port GPIOA
+#define EN3_Pin GPIO_PIN_9
+#define EN3_GPIO_Port GPIOA
+#define EN4_Pin GPIO_PIN_10
+#define EN4_GPIO_Port GPIOA
+#define D_Pin GPIO_PIN_3
+#define D_GPIO_Port GPIOB
+#define E_Pin GPIO_PIN_4
+#define E_GPIO_Port GPIOB
+#define F_Pin GPIO_PIN_5
+#define F_GPIO_Port GPIOB
+#define G_Pin GPIO_PIN_6
+#define G_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -201,11 +201,14 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_Blinky_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+                          |EN3_Pin|EN4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, RED1_Pin|YLW1_Pin|GRN1_Pin|RED2_Pin
-                          |YLW2_Pin|GRN2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, A_Pin|B_Pin|C_Pin|RED1_Pin
+                          |YLW1_Pin|GRN1_Pin|RED2_Pin|YLW2_Pin
+                          |GRN2_Pin|D_Pin|E_Pin|F_Pin
+                          |G_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : Button1_Pin Button2_Pin Button3_Pin */
   GPIO_InitStruct.Pin = Button1_Pin|Button2_Pin|Button3_Pin;
@@ -213,17 +216,23 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LED_Blinky_Pin */
-  GPIO_InitStruct.Pin = LED_Blinky_Pin;
+  /*Configure GPIO pins : LED_Blinky_Pin EN0_Pin EN1_Pin EN2_Pin
+                           EN3_Pin EN4_Pin */
+  GPIO_InitStruct.Pin = LED_Blinky_Pin|EN0_Pin|EN1_Pin|EN2_Pin
+                          |EN3_Pin|EN4_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_Blinky_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : RED1_Pin YLW1_Pin GRN1_Pin RED2_Pin
-                           YLW2_Pin GRN2_Pin */
-  GPIO_InitStruct.Pin = RED1_Pin|YLW1_Pin|GRN1_Pin|RED2_Pin
-                          |YLW2_Pin|GRN2_Pin;
+  /*Configure GPIO pins : A_Pin B_Pin C_Pin RED1_Pin
+                           YLW1_Pin GRN1_Pin RED2_Pin YLW2_Pin
+                           GRN2_Pin D_Pin E_Pin F_Pin
+                           G_Pin */
+  GPIO_InitStruct.Pin = A_Pin|B_Pin|C_Pin|RED1_Pin
+                          |YLW1_Pin|GRN1_Pin|RED2_Pin|YLW2_Pin
+                          |GRN2_Pin|D_Pin|E_Pin|F_Pin
+                          |G_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
