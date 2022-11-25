@@ -24,6 +24,9 @@
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
 #include "button.h"
+#include "firstLane.h"
+#include "secondLane.h"
+#include "global.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,11 +98,31 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setTimer1(100);
+  setTimer2(100);
+  setTimer3(100);
   while (1)
   {
-	  if(isButton1Pressed() == 1) {
-		  HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
+	  if(timer1_flag == 1)
+	  {
+		  firstLaneTrafficLight();
+		  setTimer1(100);
 	  }
+
+	  if(timer2_flag == 1) {
+		  secondLaneTrafficLight();
+		  setTimer2(100);
+	  }
+
+	  if(timer3_flag == 1)
+	  {
+		  HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
+		  setTimer3(100);
+	  }
+
+//	  if(isButton1Pressed() == 1) {
+//		  HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
+//	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
