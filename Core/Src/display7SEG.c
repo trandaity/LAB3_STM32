@@ -96,6 +96,12 @@ void update7SEG(int index){
 			display7SEG(led_buffer[index]);
 			break;
 		}
+		case FIFTH_LED:
+		{
+			turnOn7SEG(FIFTH_LED);
+			display7SEG(led_buffer[index]);
+			break;
+		}
 		default: break;
 	}
 }

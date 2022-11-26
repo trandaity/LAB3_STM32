@@ -27,6 +27,7 @@
 #include "firstLane.h"
 #include "secondLane.h"
 #include "global.h"
+#include "display7SEG.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,6 +102,7 @@ int main(void)
   setTimer1(100);
   setTimer2(100);
   setTimer3(100);
+  setTimer4(20);
   while (1)
   {
 	  if(timer1_flag == 1)
@@ -112,6 +114,14 @@ int main(void)
 	  if(timer2_flag == 1) {
 		  secondLaneTrafficLight();
 		  setTimer2(100);
+	  }
+
+	  if(timer4_flag == 1) {
+		  turnOff7SEG();
+		  if(index_led >= 5)
+			  index_led = 0;
+		  update7SEG(index_led++);
+		  setTimer4(20);
 	  }
 
 	  if(timer3_flag == 1)
