@@ -14,3 +14,8 @@ int ylwValue = 2;
 int grnValue = 3;
 int firstLaneCounter = 0;
 int secondLaneCounter = 0;
+int increaseRED = 0;
+int increaseYLW = 0;
+int increaseGRN = 0;
+int setStatus = 0;
+

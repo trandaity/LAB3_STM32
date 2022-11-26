@@ -99,25 +99,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(100);
-  setTimer2(100);
+
   setTimer3(100);
   setTimer4(20);
   setTimer5(1);
   setTimer6(1);
   setTimer7(1);
+  setTimer8(100);
   while (1)
   {
-	  if(timer1_flag == 1)
-	  {
-		  firstLaneTrafficLight();
-		  setTimer1(100);
-	  }
-
-	  if(timer2_flag == 1) {
-		  secondLaneTrafficLight();
-		  setTimer2(100);
-	  }
+	  firstLaneTrafficLight();
+	  secondLaneTrafficLight();
 
 	  if(timer4_flag == 1) {
 		  turnOff7SEG();
@@ -145,10 +137,10 @@ int main(void)
 		  setTimer7(1);
 	  }
 
-	  if(timer3_flag == 1)
+	  if(timer8_flag == 1)
 	  {
 		  HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
-		  setTimer3(100);
+		  setTimer8(100);
 	  }
 
 //	  if(isButton1Pressed() == 1) {

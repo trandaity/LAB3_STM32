@@ -12,7 +12,8 @@ void secondLaneTrafficLight() {
 		case 0:
 		{
 			HAL_GPIO_WritePin(GRN2_GPIO_Port, GRN2_Pin, 1);
-			secondLaneCounter = grnValue;
+//			secondLaneCounter = grnValue;
+			setTimer2(grnValue*100);
 			secondLaneStatus = 3;
 			break;
 		}
@@ -20,11 +21,16 @@ void secondLaneTrafficLight() {
 		{
 			HAL_GPIO_WritePin(RED2_GPIO_Port, RED2_Pin, 1);
 			HAL_GPIO_WritePin(YLW2_GPIO_Port, YLW2_Pin, 0);
-			secondLaneCounter--;
-			if(secondLaneCounter == 0)
+//			secondLaneCounter--;
+//			if(secondLaneCounter == 0)
+//			{
+//				secondLaneCounter = grnValue;
+//				secondLaneStatus = 3;
+//			}
+			if(timer2_flag == 1)
 			{
-				secondLaneCounter = grnValue;
 				secondLaneStatus = 3;
+				setTimer2(grnValue*100);
 			}
 			break;
 		}
@@ -32,10 +38,15 @@ void secondLaneTrafficLight() {
 		{
 			HAL_GPIO_WritePin(YLW2_GPIO_Port, YLW2_Pin, 1);
 			HAL_GPIO_WritePin(GRN2_GPIO_Port, GRN2_Pin, 0);
-			secondLaneCounter--;
-			if(secondLaneCounter == 0) {
-				secondLaneCounter = redValue;
+//			secondLaneCounter--;
+//			if(secondLaneCounter == 0) {
+//				secondLaneCounter = redValue;
+//				secondLaneStatus = 1;
+//			}
+			if(timer2_flag == 1)
+			{
 				secondLaneStatus = 1;
+				setTimer2(redValue*100);
 			}
 			break;
 		}
@@ -43,10 +54,15 @@ void secondLaneTrafficLight() {
 		{
 			HAL_GPIO_WritePin(GRN2_GPIO_Port, GRN2_Pin, 1);
 			HAL_GPIO_WritePin(RED2_GPIO_Port, RED2_Pin, 0);
-			secondLaneCounter--;
-			if(secondLaneCounter == 0){
-				secondLaneCounter = ylwValue;
+//			secondLaneCounter--;
+//			if(secondLaneCounter == 0){
+//				secondLaneCounter = ylwValue;
+//				secondLaneStatus = 2;
+//			}
+			if(timer2_flag == 1)
+			{
 				secondLaneStatus = 2;
+				setTimer2(ylwValue*100);
 			}
 			break;
 		}

@@ -23,7 +23,7 @@ Core/Src/secondLane.o: ../Core/Src/secondLane.c ../Core/Inc/secondLane.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/global.h
+ ../Core/Inc/global.h ../Core/Inc/software_timer.h
 
 ../Core/Inc/secondLane.h:
 
@@ -78,3 +78,5 @@ Core/Src/secondLane.o: ../Core/Src/secondLane.c ../Core/Inc/secondLane.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
 ../Core/Inc/global.h:
+
+../Core/Inc/software_timer.h:

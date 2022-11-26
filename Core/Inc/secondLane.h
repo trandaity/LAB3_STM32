@@ -10,6 +10,7 @@
 
 #include "main.h"
 #include "global.h"
+#include "software_timer.h"
 
 void secondLaneTrafficLight();
 
