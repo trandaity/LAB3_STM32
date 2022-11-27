@@ -8,11 +8,13 @@
 #include "secondLane.h"
 
 void secondLaneTrafficLight() {
+	led_buffer[3] = secondLaneCounter/10;
+	led_buffer[4] = secondLaneCounter%10;
 	switch (secondLaneStatus) {
 		case 0:
 		{
 			HAL_GPIO_WritePin(GRN2_GPIO_Port, GRN2_Pin, 1);
-//			secondLaneCounter = grnValue;
+			secondLaneCounter = grnValue;
 			setTimer2(grnValue*100);
 			secondLaneStatus = 3;
 			break;
@@ -27,8 +29,17 @@ void secondLaneTrafficLight() {
 //				secondLaneCounter = grnValue;
 //				secondLaneStatus = 3;
 //			}
+//			led_buffer[3] = secondLaneCounter/10;
+//			led_buffer[4] = secondLaneCounter%10;
+			if(timer9_flag == 1)
+			{
+				secondLaneCounter--;
+				setTimer9(100);
+			}
+
 			if(timer2_flag == 1)
 			{
+				secondLaneCounter = grnValue;
 				secondLaneStatus = 3;
 				setTimer2(grnValue*100);
 			}
@@ -43,8 +54,17 @@ void secondLaneTrafficLight() {
 //				secondLaneCounter = redValue;
 //				secondLaneStatus = 1;
 //			}
+//			led_buffer[3] = secondLaneCounter/10;
+//			led_buffer[4] = secondLaneCounter%10;
+			if(timer9_flag == 1)
+			{
+				secondLaneCounter--;
+				setTimer9(100);
+			}
+
 			if(timer2_flag == 1)
 			{
+				secondLaneCounter = redValue;
 				secondLaneStatus = 1;
 				setTimer2(redValue*100);
 			}
@@ -59,8 +79,17 @@ void secondLaneTrafficLight() {
 //				secondLaneCounter = ylwValue;
 //				secondLaneStatus = 2;
 //			}
+//			led_buffer[3] = secondLaneCounter/10;
+//			led_buffer[4] = secondLaneCounter%10;
+			if(timer9_flag == 1)
+			{
+				secondLaneCounter--;
+				setTimer9(100);
+			}
+
 			if(timer2_flag == 1)
 			{
+				secondLaneCounter = ylwValue;
 				secondLaneStatus = 2;
 				setTimer2(ylwValue*100);
 			}

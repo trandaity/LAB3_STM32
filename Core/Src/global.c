@@ -6,7 +6,7 @@
  */
 
 int index_led = 0;
-int led_buffer[5] = {0, 0, 3, 0, 5};
+int led_buffer[5] = {0, 0, 5, 0, 3};
 int firstLaneStatus = 0;
 int secondLaneStatus = 0;
 int redValue = 5;
@@ -18,4 +18,7 @@ int increaseRED = 0;
 int increaseYLW = 0;
 int increaseGRN = 0;
 int setStatus = 0;
+int mode = 0;
+int buffer1 = 0;
+int buffer2 = 0;
 

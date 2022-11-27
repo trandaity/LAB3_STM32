@@ -106,10 +106,9 @@ int main(void)
   setTimer6(1);
   setTimer7(1);
   setTimer8(100);
+  setTimer9(100);
   while (1)
   {
-	  firstLaneTrafficLight();
-	  secondLaneTrafficLight();
 
 	  if(timer4_flag == 1) {
 		  turnOff7SEG();
@@ -118,6 +117,10 @@ int main(void)
 		  update7SEG(index_led++);
 		  setTimer4(20);
 	  }
+
+	  firstLaneTrafficLight();
+	  secondLaneTrafficLight();
+
 
 	  if(timer5_flag == 1)
 	  {
@@ -143,15 +146,47 @@ int main(void)
 		  setTimer8(100);
 	  }
 
-//	  if(isButton1Pressed() == 1) {
-//		  HAL_GPIO_TogglePin(LED_Blinky_GPIO_Port, LED_Blinky_Pin);
-//	  }
+	  if(isButton1Pressed() == 1) {
+		  mode++;
+		  if(mode > 4)
+		  {
+			  mode = 1;
+		  }
+		  led_buffer[0] = mode;
+	  }
 
 	  if(isButton2Pressed() == 1)
-		  HAL_GPIO_TogglePin(MODE2_GPIO_Port, MODE2_Pin);
+	  {
+		  switch(mode){
+		  case 2:
+		  {
+			  HAL_GPIO_TogglePin(MODE2_GPIO_Port, MODE2_Pin);
+			  increaseRED++;
+			  break;
+		  }
+		  case 3:
+		  {
+			  HAL_GPIO_TogglePin(MODE3_GPIO_Port, MODE3_Pin);
+			  increaseYLW++;
+			  break;
+		  }
+		  case 4:
+		  {
+			  HAL_GPIO_TogglePin(MODE4_GPIO_Port, MODE4_Pin);
+			  increaseGRN++;
+			  break;
+		  }
+		  default:
+			  break;
+		  }
+	  }
 
 	  if(isButton3Pressed() == 1)
-		  HAL_GPIO_TogglePin(MODE3_GPIO_Port, MODE3_Pin);
+	  {
+		  redValue = redValue + increaseRED;
+		  ylwValue = ylwValue + increaseYLW;
+		  grnValue = grnValue + increaseGRN;
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

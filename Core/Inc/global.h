@@ -18,11 +18,12 @@ extern int redValue;
 extern int ylwValue;
 extern int grnValue;
 
-extern int incresesRED;
+extern int increaseRED;
 extern int increaseYLW;
 extern int increaseGRN;
 
 extern int setStatus;
+extern int mode;
 
 extern int firstLaneCounter;
 extern int secondLaneCounter;

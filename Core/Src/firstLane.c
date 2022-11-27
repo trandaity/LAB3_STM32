@@ -8,11 +8,13 @@
 #include "firstLane.h"
 
 void firstLaneTrafficLight() {
+	led_buffer[1] = firstLaneCounter/10;
+	led_buffer[2] = firstLaneCounter%10;
 	switch (firstLaneStatus) {
 		case 0:
 		{
 			HAL_GPIO_WritePin(RED1_GPIO_Port, RED1_Pin, 1);
-//			firstLaneCounter = redValue;
+			firstLaneCounter = redValue;
 			setTimer1(redValue*100);
 			firstLaneStatus = 1;
 			break;
@@ -21,6 +23,12 @@ void firstLaneTrafficLight() {
 		{
 			HAL_GPIO_WritePin(RED1_GPIO_Port, RED1_Pin, 1);
 			HAL_GPIO_WritePin(YLW1_GPIO_Port, YLW1_Pin, 0);
+
+			if(timer3_flag == 1)
+			{
+				firstLaneCounter--;
+				setTimer3(100);
+			}
 //			firstLaneCounter--;
 //			if(firstLaneCounter == 0)
 //			{
@@ -29,6 +37,7 @@ void firstLaneTrafficLight() {
 //			}
 			if(timer1_flag == 1)
 			{
+				firstLaneCounter = grnValue;
 				firstLaneStatus = 3;
 				setTimer1(grnValue*100);
 			}
@@ -43,8 +52,17 @@ void firstLaneTrafficLight() {
 //				firstLaneCounter = redValue;
 //				firstLaneStatus = 1;
 //			}
+//			led_buffer[1] = firstLaneCounter/10;
+//			led_buffer[2] = firstLaneCounter%10;
+			if(timer3_flag == 1)
+			{
+				firstLaneCounter--;
+				setTimer3(100);
+			}
+
 			if(timer1_flag == 1)
 			{
+				firstLaneCounter = redValue;
 				firstLaneStatus = 1;
 				setTimer1(redValue*100);
 			}
@@ -59,9 +77,17 @@ void firstLaneTrafficLight() {
 //				firstLaneCounter = ylwValue;
 //				firstLaneStatus = 2;
 //			}
+//			led_buffer[1] = firstLaneCounter/10;
+//			led_buffer[2] = firstLaneCounter%10;
+			if(timer3_flag == 1)
+			{
+				firstLaneCounter--;
+				setTimer3(100);
+			}
 
 			if(timer1_flag == 1)
 			{
+				firstLaneCounter = ylwValue;
 				firstLaneStatus = 2;
 				setTimer1(ylwValue*100);
 			}

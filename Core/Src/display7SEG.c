@@ -5,9 +5,8 @@
  *      Author: trand
  */
 
-#include "main.h"
+
 #include "display7SEG.h"
-#include "global.h"
 
 void turnOff7SEG(){
 	HAL_GPIO_WritePin(A_GPIO_Port, A_Pin, 1);
@@ -105,6 +104,7 @@ void update7SEG(int index){
 		default: break;
 	}
 }
+
 
 void display7SEG (int num){
 	turnOff7SEG();
