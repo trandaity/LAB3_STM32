@@ -109,13 +109,17 @@ int main(void)
   setTimer9(100);
   while (1)
   {
-
+		led_buffer[0] = firstLaneCounter / 10;
+		led_buffer[1] = firstLaneCounter % 10;
+		led_buffer[2] = secondLaneCounter / 10;
+		led_buffer[3] = secondLaneCounter % 10;
 	  if(timer4_flag == 1) {
 		  turnOff7SEG();
-		  if(index_led >= 5)
+			if (index_led >= 5) {
 			  index_led = 0;
+			}
 		  update7SEG(index_led++);
-		  setTimer4(20);
+			setTimer4(20);
 	  }
 
 	  firstLaneTrafficLight();
@@ -152,7 +156,7 @@ int main(void)
 		  {
 			  mode = 1;
 		  }
-		  led_buffer[0] = mode;
+			led_buffer[4] = mode;
 	  }
 
 	  if(isButton2Pressed() == 1)

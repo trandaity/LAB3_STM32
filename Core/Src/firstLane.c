@@ -8,8 +8,7 @@
 #include "firstLane.h"
 
 void firstLaneTrafficLight() {
-	led_buffer[1] = firstLaneCounter/10;
-	led_buffer[2] = firstLaneCounter%10;
+
 	switch (firstLaneStatus) {
 		case 0:
 		{
